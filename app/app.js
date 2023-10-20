@@ -1,26 +1,32 @@
-const apiKey = 'at_A6xi0nYjZOO5AmJ0rRM7OrX0RLVZd'
-const endPoint = `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}`
+const ipAddressP = document.querySelector('[data-js="ip-address"]')
+const locationP = document.querySelector('[data-js="location"]')
+const timezoneP = document.querySelector('[data-js="timezone"]')
+const ispP = document.querySelector('[data-js="isp"]')
 
-const getIpInfo = async endPoint => {
-    try {
-        const response = await fetch(endPoint)
-
-        if(!response.ok) {
-            throw new Error("Couldn't get your IP address")
-        }
-
-        return response.json()
-    } catch(error) {
-        alert(error)
-    }
+const showMap = (lat, lng) => {
+    const map = L.map('map', {
+        center: [lat, lng],
+        zoom: 13,
+        zoomControl: false
+    })
+    
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    
+    const marker = L.marker([lat, lng]).addTo(map);
 }
 
 const showIPInfo = async endPoint => {
     const { ip, location, isp} = await getIpInfo(endPoint)
+    const {region, city, lat, lng, timezone} = location
+    ipAddressP.textContent = ip
+    locationP.textContent = `${city}, ${region}`
+    timezoneP.textContent = timezone
+    ispP.textContent = isp
 
-    console.log(ip)
-    console.log(location)
-    console.log(isp)
+    showMap(lat, lng)
 }
 
-// showIPInfo(endPoint)
+showIPInfo(endPoint)
