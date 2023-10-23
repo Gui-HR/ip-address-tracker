@@ -55,7 +55,9 @@ form.addEventListener('submit', event => {
     
     const divMap = document.querySelector('#map')
     divMap.remove()
-    showIpInfo(endPoint + `&ipAddress=${inputValue}`)
+    // showIpInfo(endPoint + `&ipAddress=${inputValue}`)
+    showIpInfo(endPoint + `&domain=${inputValue}`)
+    
 
     event.target.reset()
 })
