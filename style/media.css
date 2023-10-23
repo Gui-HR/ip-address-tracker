@@ -1,0 +1,46 @@
+@media (min-width: 670px) {
+    .pattern-background {
+        background: url(../images/pattern-bg-desktop.png) no-repeat top left;
+        background-size: cover;
+    }
+
+    h1 {
+        margin: 25px 0px;
+    }
+
+    form {
+        margin-bottom: 40px;
+    }
+
+    input {
+        width: 460px;
+    }
+
+    button {
+        width: 50px;
+    }
+
+    ul {
+        display: flex;
+        max-width: 1000px;
+        width: 80%;
+        min-height: 125px;
+    }
+
+    li {
+        width: 25%;
+        text-align: start;
+        margin: 15px;
+        padding-right: 15px;
+        border-right: 1px solid hsl(0, 0%, 70%);
+    }
+
+    li:nth-child(4) {
+        border-right: 0px
+
+    }
+
+    h2 {
+        margin-bottom: 12px;
+    }
+}
