@@ -1,7 +1,7 @@
 const form = document.querySelector('form')
 
 const myIcon = L.icon({
-    iconUrl: '../app/icon-location-copy.svg',
+    iconUrl: '/images/icon-location.svg',
     iconSize: [40, 50],
     iconAnchor: [22, 94],
     popupAnchor: [-3, -76]
